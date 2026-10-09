@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="es-MX">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi práctica Tailwind</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+    </style>
+</head>
+
+<body class="min-h-screen bg-slate-100 p-4 text-slate-900
+  sm:p-8 dark:bg-slate-950 dark:text-slate-100">
+  <main class="mx-auto max-w-5xl">
+    <!-- Ejercicio 10: encabezado con menú del Ej. 7 y modo oscuro del Ej. 9 -->
+    <header class="flex flex-col gap-3 border-b border-slate-300 pb-4
+      sm:flex-row sm:items-center sm:justify-between">
+      <a href="#inicio" class="text-xl font-bold">Aula web</a>
+      <div class="flex items-center justify-end gap-3">
+        <nav id="menuAula" aria-label="Secciones del aula"
+          class="hidden flex-col gap-3 md:flex md:flex-row md:gap-4">
+          <a href="#cursos-web" class="hover:underline">Cursos</a>
+          <a href="#contacto" class="hover:underline">Contacto</a>
+        </nav>
+        <div class="flex gap-2">
+          <button id="menuAulaBtn" type="button" aria-controls="menuAula"
+            aria-expanded="false" class="rounded-lg border px-3 py-2
+            md:hidden">Menú</button>
+          <button id="temaAula" type="button" aria-pressed="false"
+            class="rounded-lg bg-blue-700 px-3 py-2 text-white
+            hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">Oscuro</button>
+        </div>
+      </div>
+    </header>
+
+    <h1 class="mt-6 text-3xl font-bold">Mi primera práctica Diseño FrontEnd</h1>
+    <article class="mx-auto max-w-sm rounded-xl bg-white p-6 shadow-md
+      text-slate-900">
+            <p class="text-sm font-semibold text-blue-700">ESTUDIANTE</p>
+            <h2 class="mt-2 text-2xl font-bold">Ana López</h2>
+            <p class="mt-3 leading-relaxed text-slate-600">
+                Aprendo a construir interfaces con Tailwind CSS.
+            </p>
+
+            <!-- Reto 1: carrera en una etiqueta rounded-full de otro color -->
+            <p class="mt-4 inline-block rounded-full bg-emerald-100 px-3 py-1
+    text-sm font-medium text-emerald-800">
+                Jesús Francisco Barreras Samaniego - Ingeniería en Software
+            </p>
+        </article>
+
+    <div class="flex flex-wrap gap-3">
+      <button type="button" class="rounded-lg bg-blue-700 px-5 py-2
+    font-semibold text-white hover:bg-blue-800 transition-colors
+    focus-visible:outline-2 focus-visible:outline-offset-2
+    focus-visible:outline-blue-700">Guardar</button>
+      <button type="button" class="rounded-lg border border-slate-500
+    px-5 py-2 hover:bg-slate-200 dark:hover:bg-slate-700
+    focus-visible:outline-2 focus-visible:outline-offset-2">
+        Cancelar
+      </button>
+      <button type="button" disabled class="rounded-lg bg-blue-700
+    px-5 py-2 text-white disabled:opacity-50
+    disabled:cursor-not-allowed">No disponible</button>
+
+            <!-- Reto 2: botón de eliminación en rojo, conserva el foco -->
+            <button type="button" class="rounded-lg bg-red-600 px-5 py-2
+    font-semibold text-white hover:bg-red-700 transition-colors
+    focus-visible:outline-2 focus-visible:outline-offset-2
+    focus-visible:outline-red-600">Eliminar</button>
+    </div>
+
+
+    <section class="flex flex-col gap-4 rounded-xl bg-white p-6 text-slate-900
+  md:flex-row md:items-center md:justify-between">
+            <div>
+                <h2 class="text-xl font-bold">Mi portafolio</h2>
+                <p class="text-slate-600">Proyectos de desarrollo web</p>
+            </div>
+            <!-- Reto 3: tercer elemento; con justify-between queda en medio -->
+            <span class="w-fit rounded-full bg-slate-200 px-3 py-1
+      text-sm font-semibold text-slate-700
+      dark:bg-slate-700 dark:text-slate-200">6 prácticas</span>
+            <a href="#proyectos" class="rounded-lg bg-blue-700 px-4 py-2
+    text-center font-semibold text-white hover:bg-blue-800">
+                Ver proyectos
+            </a>
+        </section>
+        <section id="proyectos" class="mt-8">
+            <h3 class="text-xl font-bold">Proyectos disponibles</h3>
+            <p class="mt-2">RedUES.</p>
+        </section>
+
+        <section class="flex flex-col gap-4 rounded-xl bg-white p-6 text-slate-900
+  md:flex-row md:items-center md:justify-end">
+            <div>
+                <h2 class="text-xl font-bold">Servicio Social</h2>
+                <p class="text-slate-600">Actividades realizadas.</p>
+            </div>
+<a href="#servicio-social" class="rounded-lg bg-blue-700 px-4 py-2
+    text-center font-semibold text-white hover:bg-blue-800">
+                Ver actividades
+            </a>
+        </section>
+        <section id="servicio-social" class="mt-8">
+            <h3 class="text-xl font-bold">Funciones desempeñadas</h3>
+      <p class="mt-2">Mantenimiento e instalación de sistemas de computo y software.</p>
+    </section>
+
+
+    <section aria-label="Catálogo" class="grid grid-cols-1 gap-6
+  sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h2 class="text-xl font-bold">HTML</h2>
+        <p class="mt-2 text-slate-600">Estructura de la página.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h2 class="text-xl font-bold">CSS</h2>
+        <p class="mt-2 text-slate-600">Presentación visual.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h2 class="text-xl font-bold">JavaScript</h2>
+        <p class="mt-2 text-slate-600">Interacción y lógica.</p>
+      </article>
+
+
+      <!-- Reto 4: tres tarjetas más; Grid crea una segunda fila -->
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h2 class="text-xl font-bold">PHP</h2>
+        <p class="mt-2 text-slate-600">Desarrollo web del lado del servidor.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h2 class="text-xl font-bold">Kotlin</h2>
+        <p class="mt-2 text-slate-600">Desarrollo de aplicaciones móviles.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h2 class="text-xl font-bold">MySQL</h2>
+        <p class="mt-2 text-slate-600">Gestión de bases de datos.</p>
+      </article>
+    </section>
+
+
+    <section class="grid items-center gap-8 rounded-xl bg-white p-6 text-slate-900
+  md:grid-cols-2 md:p-10">
+      <!-- Reto 5: los paneles se invierten en pantalla; el orden del HTML
+           (y por lo tanto del teclado y del lector de pantalla) no cambia -->
+      <div class="md:order-2">
+        <p class="font-semibold text-blue-700">DESARROLLO WEB</p>
+    <h2 class="mt-3 text-3xl font-bold md:text-5xl">
+      Aprende construyendo
+    </h2>
+        <p class="mt-4 max-w-prose text-slate-600">
+          Practica interfaces que se adapten a distintas pantallas.
+        </p>
+        <a href="#temario" class="mt-6 inline-block rounded-lg
+      bg-blue-700 px-5 py-3 font-semibold text-white">
+          Explorar temario
+        </a>
+      </div>
+      <div class="rounded-xl bg-blue-100 p-8 text-blue-950 md:order-1">
+        <h3 class="text-2xl font-bold">10 ejercicios</h3>
+        <p class="mt-2">HTML, Tailwind y JavaScript básico.</p>
+      </div>
+    </section>
+    <section id="temario" class="mt-8">
+      <h2 class="text-xl font-bold">Temario</h2>
+      <p>Tarjetas, formularios, navegación y modo oscuro.</p>
+    </section>
+
+
+    <form id="registro" class="mx-auto max-w-md rounded-xl
+  bg-white p-6 shadow-sm text-slate-900">
+      <h2 class="text-2xl font-bold">Registro al taller</h2>
+      <!-- Reto 6: campo obligatorio con label, id y autocomplete -->
+      <label for="nombre" class="mt-5 block font-medium">Nombre</label>
+      <input id="nombre" name="nombre" type="text" required
+        autocomplete="name" class="mt-2 w-full rounded-lg border
+        border-slate-400 p-3 focus:border-blue-700 focus:ring-2
+        focus:ring-blue-700" placeholder="Ana López">
+      <label for="correo" class="mt-5 block font-medium">Correo</label>
+      <input id="correo" name="correo" type="email" required autocomplete="email" class="mt-2 w-full rounded-lg border
+    border-slate-400 p-3 focus:border-blue-700 focus:ring-2
+    focus:ring-blue-700" placeholder="nombre@ejemplo.com">
+      <button class="mt-5 rounded-lg bg-blue-700 px-5 py-2
+    font-semibold text-white" type="submit">Registrar</button>
+      <p id="mensaje" role="status" class="mt-3 text-green-800"></p>
+    </form>
+    <script>
+      const formulario = document.querySelector('#registro');
+      formulario.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        document.querySelector('#mensaje').textContent =
+          'Demostración completada. No se enviaron datos.';
+        formulario.reset();
+      });
+    </script>
+
+
+    <nav aria-label="Principal" class="rounded-xl bg-white p-4 text-slate-900">
+      <div class="flex items-center justify-between">
+        <a href="#inicio" class="text-xl font-bold">Mi sitio</a>
+        <button id="menuBtn" type="button" aria-controls="menu" aria-expanded="false" class="rounded-lg border px-3 py-2
+      md:hidden">Menú</button>
+      </div>
+      <div id="menu" class="mt-4 hidden flex-col gap-3 md:flex
+    md:flex-row">
+        <a href="#inicio" class="hover:underline">Inicio</a>
+        <a href="#cursos" class="hover:underline">Cursos</a>
+      </div>
+    </nav>
+    <section id="inicio" class="mt-8">
+      <h2>Inicio</h2>
+    </section>
+    <section id="cursos" class="mt-8">
+      <h2>Cursos</h2>
+    </section>
+    <script>
+      const boton = document.querySelector('#menuBtn');
+      const menu = document.querySelector('#menu');
+      boton.addEventListener('click', () => {
+        const abierto = boton.getAttribute('aria-expanded') !== 'true';
+        boton.setAttribute('aria-expanded', String(abierto));
+        menu.classList.toggle('hidden', !abierto);
+        menu.classList.toggle('flex', abierto);
+      });
+      // Reto 7: el menú se cierra al elegir un enlace en móvil
+      menu.querySelectorAll('a').forEach((enlace) => {
+        enlace.addEventListener('click', () => {
+          boton.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('flex');
+          menu.classList.add('hidden');
+        });
+      });
+    </script>
+
+
+    <div class="overflow-x-auto rounded-lg border border-slate-300">
+      <table class="min-w-[600px] w-full border-collapse bg-white text-slate-900">
+        <caption class="p-4 text-left font-bold">Avance de prácticas</caption>
+        <thead class="bg-slate-200 text-left">
+          <tr>
+            <th scope="col" class="p-3">Estudiante</th>
+            <th scope="col" class="p-3">Práctica</th>
+            <th scope="col" class="p-3">Estado</th>
+            <!-- Reto 8: columna Fecha -->
+            <th scope="col" class="p-3">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-slate-300 hover:bg-slate-50">
+            <th scope="row" class="p-3 text-left font-medium">Ana</th>
+            <td class="p-3">Grid</td>
+            <td class="p-3 text-green-800">Entregada</td>
+            <td class="p-3">12/09/2026</td>
+          </tr>
+          <tr class="border-t border-slate-300 hover:bg-slate-50">
+            <th scope="row" class="p-3 text-left font-medium">Luis</th>
+            <td class="p-3">Formulario</td>
+            <td class="p-3 text-amber-800">Pendiente</td>
+            <td class="p-3">25/09/2026</td>
+          </tr>
+          <tr class="border-t border-slate-300 hover:bg-slate-50">
+            <th scope="row" class="p-3 text-left font-medium">María</th>
+            <td class="p-3">Flexbox</td>
+            <td class="p-3 text-green-800">Entregada</td>
+            <td class="p-3">02/10/2026</td>
+          </tr>
+          <tr class="border-t border-slate-300 hover:bg-slate-50">
+            <th scope="row" class="p-3 text-left font-medium">Carlos</th>
+            <td class="p-3">Tabla</td>
+            <td class="p-3 text-green-800">Entregada</td>
+            <td class="p-3">06/10/2026</td>
+          </tr>
+          <tr class="border-t border-slate-300 hover:bg-slate-50">
+            <th scope="row" class="p-3 text-left font-medium">Sofía</th>
+            <td class="p-3">Modo oscuro</td>
+            <td class="p-3 text-amber-800">Pendiente</td>
+            <td class="p-3">09/10/2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <section class="rounded-xl bg-white p-6 text-slate-900
+  dark:bg-slate-800 dark:text-white">
+      <h2 class="text-2xl font-bold">Tema de la interfaz</h2>
+      <p class="mt-3 text-slate-600 dark:text-slate-300">
+        El botón cambia los colores de esta página.
+      </p>
+      <button id="tema" type="button" aria-pressed="false" class="mt-5 rounded-lg bg-blue-700 px-4 py-2 text-white
+    hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-700">
+        Activar modo oscuro
+      </button>
+
+      <!-- Reto 9: tarjeta secundaria con sus propios colores dark: -->
+      <article class="mt-6 rounded-xl bg-slate-100 p-6 shadow-sm
+        dark:bg-slate-900 dark:ring-1 dark:ring-slate-700">
+        <h3 class="text-xl font-bold">Tarjeta secundaria</h3>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">
+          Cada tarjeta puede combinar sus propios colores claros y oscuros.
+        </p>
+        <span class="mt-4 inline-block rounded-full bg-amber-100 px-3 py-1
+          text-sm font-medium text-amber-800
+          dark:bg-amber-900 dark:text-amber-200">
+          Nuevo
+        </span>
+      </article>
+    </section>
+    <script>
+      // Reto 10: un solo control de tema para el botón del Ej. 9 y el del encabezado
+      const botonesTema = [
+        document.querySelector('#tema'),
+        document.querySelector('#temaAula'),
+      ];
+      function aplicarTema(oscuro) {
+        document.documentElement.classList.toggle('dark', oscuro);
+        botonesTema.forEach((btn) => {
+          btn.setAttribute('aria-pressed', String(oscuro));
+          btn.textContent = btn.id === 'tema'
+            ? (oscuro ? 'Activar modo claro' : 'Activar modo oscuro')
+            : (oscuro ? 'Claro' : 'Oscuro');
+        });
+      }
+      botonesTema.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          aplicarTema(!document.documentElement.classList.contains('dark'));
+        });
+      });
+    </script>
+
+
+    <!-- Ejercicio 10: bienvenida, cursos, formulario y pie de página -->
+    <section class="py-10">
+      <h2 class="text-3xl font-bold md:text-5xl">Aprende desarrollo web</h2>
+      <p class="mt-4 text-slate-600">Practica con proyectos pequeños.</p>
+      <p class="mt-3 max-w-prose text-slate-600">
+        Esta página reúne las diez prácticas: tarjetas, botones, Flexbox,
+        Grid, formularios, navegación móvil, tablas y modo oscuro.
+      </p>
+    </section>
+
+    <section id="cursos-web" aria-label="Cursos" class="grid gap-6
+      sm:grid-cols-2 lg:grid-cols-3">
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h3 class="text-xl font-bold">HTML</h3>
+        <p class="mt-2">Construye la estructura.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h3 class="text-xl font-bold">Tailwind</h3>
+        <p class="mt-2">Diseña la presentación.</p>
+      </article>
+      <article class="rounded-xl bg-white p-6 shadow-sm text-slate-900">
+        <h3 class="text-xl font-bold">JavaScript</h3>
+        <p class="mt-2">Programa la interacción.</p>
+      </article>
+    </section>
+
+    <!-- Reto 10: formulario propio del aula -->
+    <form id="inscripcion" class="mx-auto mt-8 max-w-md rounded-xl
+      bg-white p-6 shadow-sm text-slate-900">
+      <h3 class="text-xl font-bold">Inscripción al curso</h3>
+      <label for="nombreAula" class="mt-4 block font-medium">Nombre</label>
+      <input id="nombreAula" name="nombreAula" type="text" required
+        autocomplete="name" placeholder="Ana López"
+        class="mt-2 w-full rounded-lg border border-slate-400 p-3
+        focus:border-blue-700 focus:ring-2 focus:ring-blue-700">
+      <label for="cursoAula" class="mt-4 block font-medium">Curso</label>
+      <select id="cursoAula" name="cursoAula" required
+        class="mt-2 w-full rounded-lg border border-slate-400 p-3
+        bg-white text-slate-900 focus:border-blue-700 focus:ring-2 focus:ring-blue-700">
+        <option value="">Selecciona un curso</option>
+        <option value="html">HTML</option>
+        <option value="tailwind">Tailwind</option>
+        <option value="javascript">JavaScript</option>
+      </select>
+      <button type="submit" class="mt-5 rounded-lg bg-blue-700 px-5 py-2
+        font-semibold text-white hover:bg-blue-800 transition-colors
+        focus-visible:outline-2 focus-visible:outline-offset-2
+        focus-visible:outline-blue-700">Inscribirme</button>
+      <p id="mensajeAula" role="status" class="mt-3 text-green-800"></p>
+    </form>
+
+    <footer id="contacto" class="mt-10 border-t border-slate-300 pt-4 pb-4">
+      <a href="mailto:docente@example.com" class="underline">
+        Contacto de ejemplo
+      </a>
+    </footer>
+
+    <script>
+      // Reto 10: menú del encabezado con el mismo comportamiento del Ej. 7
+      const menuAulaBtn = document.querySelector('#menuAulaBtn');
+      const menuAula = document.querySelector('#menuAula');
+      menuAulaBtn.addEventListener('click', () => {
+        const abierto = menuAulaBtn.getAttribute('aria-expanded') !== 'true';
+        menuAulaBtn.setAttribute('aria-expanded', String(abierto));
+        menuAula.classList.toggle('hidden', !abierto);
+        menuAula.classList.toggle('flex', abierto);
+      });
+      menuAula.querySelectorAll('a').forEach((enlace) => {
+        enlace.addEventListener('click', () => {
+          menuAulaBtn.setAttribute('aria-expanded', 'false');
+          menuAula.classList.remove('flex');
+          menuAula.classList.add('hidden');
+        });
+      });
+
+      // Reto 10: envío del formulario del aula
+      const inscripcion = document.querySelector('#inscripcion');
+      inscripcion.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        document.querySelector('#mensajeAula').textContent =
+          'Inscripción registrada en la demo. No se enviaron datos.';
+        inscripcion.reset();
+      });
+    </script>
+
+  </main>
+
+</body>
+
+</html>
